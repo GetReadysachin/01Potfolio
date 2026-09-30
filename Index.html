@@ -1,0 +1,1559 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sachin Sharma | Personal Developer Journey Platform</title>
+    <meta name="description" content="Personal developer journey of Sachin Sharma — B.Tech Computer Science student specializing in Data Science at Shri Shankaracharya Technical Campus. Documenting the path through programming, development, data science, and AI.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            400: '#38bdf8',
+                            500: '#0284c7',
+                            600: '#0369a1',
+                            700: '#075985',
+                            900: '#0c4a6e',
+                        },
+                        emerald: {
+                            400: '#34d399',
+                            500: '#10b981',
+                            600: '#059669',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'Fira Code', 'Consolas', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts & Font Awesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        pre, code, .font-mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Glassmorphic Aesthetic Cards */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+        .dark .glass-panel {
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .dark .glass-nav {
+            background: rgba(10, 15, 30, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+
+        /* Background Grid Overlay */
+        .bg-grid-pattern {
+            background-size: 32px 32px;
+            background-image: 
+                linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+        }
+        .dark .bg-grid-pattern {
+            background-size: 32px 32px;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        .dark ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #0284c7;
+        }
+
+        /* Subtle Glow Animations */
+        @keyframes pulseGlow {
+            0%, 100% { opacity: 0.35; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(1.04); }
+        }
+        .glow-effect {
+            animation: pulseGlow 6s ease-in-out infinite;
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100 transition-colors duration-300 selection:bg-brand-500 selection:text-white min-h-screen flex flex-col bg-grid-pattern relative">
+
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-40 w-full glass-nav border-b border-slate-200/80 dark:border-slate-800/80 transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            
+            <!-- Identity / Logo -->
+            <a href="#hero" class="flex items-center space-x-3 group">
+                <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-brand-500 via-indigo-600 to-sky-400 flex items-center justify-center text-white font-mono font-bold text-sm shadow-md shadow-brand-500/20 group-hover:scale-105 transition-transform">
+                    SS
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-bold text-sm tracking-tight text-slate-900 dark:text-white group-hover:text-brand-500 transition-colors">Sachin Sharma</span>
+                    <span class="text-[10px] text-slate-500 dark:text-slate-400 font-mono tracking-wider flex items-center gap-1">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping"></span>
+                        B.TECH CSE '29
+                    </span>
+                </div>
+            </a>
+
+            <!-- Desktop Navigation Links -->
+            <nav class="hidden lg:flex items-center space-x-1 font-medium text-xs text-slate-600 dark:text-slate-300">
+                <a href="#story" class="px-3 py-2 rounded-lg hover:text-brand-500 hover:bg-slate-100 dark:hover:bg-slate-800/60 transition-all">01. Story</a>
+                <a href="#now" class="px-3 py-2 rounded-lg hover:text-brand-500 hover:bg-slate-100 dark:hover:bg-slate-800/60 transition-all">02. Now</a>
+                <a href="#skills" class="px-3 py-2 rounded-lg hover:text-brand-500 hover:bg-slate-100 dark:hover:bg-slate-800/60 transition-all">03. Matrix</a>
+                <a href="#projects" class="px-3 py-2 rounded-lg hover:text-brand-500 hover:bg-slate-100 dark:hover:bg-slate-800/60 transition-all">04. Projects</a>
+                <a href="#github" class="px-3 py-2 rounded-lg hover:text-brand-500 hover:bg-slate-100 dark:hover:bg-slate-800/60 transition-all">05. Live Repos</a>
+                <a href="#roadmap" class="px-3 py-2 rounded-lg hover:text-brand-500 hover:bg-slate-100 dark:hover:bg-slate-800/60 transition-all">06. Roadmap</a>
+                <a href="#logs" class="px-3 py-2 rounded-lg hover:text-brand-500 hover:bg-slate-100 dark:hover:bg-slate-800/60 transition-all">07. Daily Log</a>
+                <a href="#journal" class="px-3 py-2 rounded-lg hover:text-brand-500 hover:bg-slate-100 dark:hover:bg-slate-800/60 transition-all">08. Journal</a>
+            </nav>
+
+            <!-- Action Controls -->
+            <div class="flex items-center space-x-2 sm:space-x-3">
+                <!-- Search Trigger -->
+                <button id="search-trigger-btn" aria-label="Open Search (Ctrl+K)" class="p-2 rounded-xl text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white bg-slate-100 hover:bg-slate-200 dark:bg-slate-800/80 dark:hover:bg-slate-700/80 transition-colors flex items-center space-x-2 text-xs">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <span class="hidden sm:inline-block font-mono text-[10px] bg-slate-200 dark:bg-slate-700 px-1.5 py-0.5 rounded text-slate-600 dark:text-slate-300">Ctrl K</span>
+                </button>
+
+                <!-- Theme Switcher -->
+                <button id="theme-toggle-btn" aria-label="Toggle dark/light mode" class="p-2 rounded-xl text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white bg-slate-100 hover:bg-slate-200 dark:bg-slate-800/80 dark:hover:bg-slate-700/80 transition-colors">
+                    <i id="theme-icon" class="fa-solid fa-moon"></i>
+                </button>
+
+                <!-- Mobile Drawer Trigger -->
+                <button id="mobile-menu-btn" aria-label="Open Navigation Menu" class="lg:hidden p-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                    <i class="fa-solid fa-bars text-lg"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden border-b border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-slate-900/95 backdrop-blur-lg px-4 pt-2 pb-6 space-y-2 text-sm font-medium">
+            <a href="#story" class="mobile-nav-link block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">Chapter 01. Story & Education</a>
+            <a href="#now" class="mobile-nav-link block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">Chapter 02. What I'm Doing Now</a>
+            <a href="#skills" class="mobile-nav-link block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">Chapter 03. Learning & Skills</a>
+            <a href="#projects" class="mobile-nav-link block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">Chapter 04. Projects</a>
+            <a href="#github" class="mobile-nav-link block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">Chapter 05. Live GitHub Repos</a>
+            <a href="#roadmap" class="mobile-nav-link block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">Chapter 06. Career Roadmap</a>
+            <a href="#logs" class="mobile-nav-link block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">Chapter 07. Daily Log & Analytics</a>
+            <a href="#journal" class="mobile-nav-link block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">Chapter 08. Journal & Guestbook</a>
+        </div>
+    </header>
+
+    <!-- Chapter Progress Banner -->
+    <div class="bg-slate-100/80 dark:bg-slate-900/80 border-b border-slate-200 dark:border-slate-800 py-2 hidden sm:block overflow-x-auto">
+        <div class="max-w-7xl mx-auto px-4 flex items-center justify-between text-[11px] font-mono text-slate-500 whitespace-nowrap space-x-4">
+            <span class="text-brand-500 font-bold flex items-center gap-1.5"><i class="fa-solid fa-compass text-xs"></i> CHAPTER PATH:</span>
+            <a href="#story" class="hover:text-brand-500 transition-colors">01. Identity</a>
+            <span>&rarr;</span>
+            <a href="#now" class="hover:text-brand-500 transition-colors">02. Focus</a>
+            <span>&rarr;</span>
+            <a href="#skills" class="hover:text-brand-500 transition-colors">03. Matrix</a>
+            <span>&rarr;</span>
+            <a href="#projects" class="hover:text-brand-500 transition-colors">04. Projects</a>
+            <span>&rarr;</span>
+            <a href="#roadmap" class="hover:text-brand-500 transition-colors">05. Roadmap</a>
+            <span>&rarr;</span>
+            <a href="#logs" class="hover:text-brand-500 transition-colors">06. Study Logs</a>
+            <span>&rarr;</span>
+            <a href="#journal" class="hover:text-brand-500 transition-colors">07. Reflections</a>
+        </div>
+    </div>
+
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-24">
+
+        <!-- Hero Section -->
+        <section id="hero" class="relative pt-8 pb-12 md:py-20 overflow-hidden">
+            <!-- Background Radial Glows -->
+            <div class="absolute -top-24 -left-20 w-96 h-96 bg-brand-500/10 dark:bg-brand-500/20 rounded-full blur-3xl pointer-events-none glow-effect"></div>
+            <div class="absolute top-1/3 -right-20 w-96 h-96 bg-indigo-500/10 dark:bg-indigo-500/20 rounded-full blur-3xl pointer-events-none glow-effect"></div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                
+                <div class="lg:col-span-7 space-y-6">
+                    <!-- Status Badge -->
+                    <div class="inline-flex items-center space-x-2.5 px-3.5 py-1.5 rounded-full bg-brand-500/10 text-brand-600 dark:text-brand-400 text-xs font-mono border border-brand-500/20 shadow-sm">
+                        <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                        <span id="hero-status-text">Currently: Learning • Building • Exploring AI</span>
+                    </div>
+
+                    <!-- Main Headline -->
+                    <div class="space-y-3">
+                        <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight">
+                            Sachin Sharma
+                        </h1>
+                        <p class="text-base sm:text-lg font-semibold text-brand-600 dark:text-brand-400 font-mono tracking-tight">
+                            B.Tech CSE — Data Science Student (2025–2029)
+                        </p>
+                        <p class="text-2xl sm:text-3xl font-bold text-slate-800 dark:text-slate-100 leading-snug">
+                            «Building my skills, one project at a time.»
+                        </p>
+                    </div>
+
+                    <!-- Statement -->
+                    <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 max-w-2xl leading-relaxed">
+                        A student developer documenting the real trajectory from C++ logic and dynamic web engineering to data analytics and artificial intelligence.
+                    </p>
+
+                    <!-- Key Actions -->
+                    <div class="flex flex-wrap gap-3 pt-3">
+                        <a href="#journey-map" class="inline-flex items-center space-x-2 px-6 py-3 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-medium text-sm transition-all shadow-lg shadow-brand-600/25 active:scale-95">
+                            <span>Explore My Journey</span>
+                            <i class="fa-solid fa-arrow-down text-xs"></i>
+                        </a>
+                        
+                        <a id="hero-github-link" href="https://github.com/GetReadysachin" target="_blank" rel="noopener noreferrer" class="inline-flex items-center space-x-2 px-6 py-3 rounded-xl bg-slate-200 dark:bg-slate-800/90 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-900 dark:text-slate-100 font-medium text-sm transition-all active:scale-95 border border-slate-300/50 dark:border-slate-700/50">
+                            <i class="fa-brands fa-github text-base"></i>
+                            <span>GitHub: @GetReadysachin</span>
+                        </a>
+
+                        <button id="download-resume-btn" class="inline-flex items-center space-x-2 px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 font-medium text-sm transition-all active:scale-95">
+                            <i class="fa-solid fa-file-contract"></i>
+                            <span>Resume Info</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Interactive Hero Terminal Console -->
+                <div class="lg:col-span-5">
+                    <div class="glass-panel p-6 rounded-2xl space-y-4 shadow-2xl relative border border-slate-200/80 dark:border-slate-800">
+                        <!-- Terminal Bar -->
+                        <div class="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-3">
+                            <div class="flex items-center space-x-2">
+                                <span class="w-3 h-3 rounded-full bg-red-400 inline-block"></span>
+                                <span class="w-3 h-3 rounded-full bg-amber-400 inline-block"></span>
+                                <span class="w-3 h-3 rounded-full bg-emerald-400 inline-block"></span>
+                            </div>
+                            <span class="text-xs font-mono text-slate-400"><i class="fa-solid fa-terminal text-[10px] mr-1"></i>sachin_profile.json</span>
+                        </div>
+
+                        <!-- Config Output -->
+                        <div class="space-y-2.5 font-mono text-xs text-slate-700 dark:text-slate-300 leading-relaxed">
+                            <div class="flex justify-between items-center py-1 border-b border-slate-100 dark:border-slate-800/60">
+                                <span class="text-slate-400">Institution:</span>
+                                <span class="font-bold text-slate-900 dark:text-white text-right">Shri Shankaracharya Tech Campus</span>
+                            </div>
+                            <div class="flex justify-between items-center py-1 border-b border-slate-100 dark:border-slate-800/60">
+                                <span class="text-slate-400">Specialization:</span>
+                                <span class="text-brand-500 font-bold">Data Science (2025–2029)</span>
+                            </div>
+                            <div class="flex justify-between items-center py-1 border-b border-slate-100 dark:border-slate-800/60">
+                                <span class="text-slate-400">GitHub ID:</span>
+                                <a href="https://github.com/GetReadysachin" target="_blank" class="text-brand-500 font-bold hover:underline">GetReadysachin</a>
+                            </div>
+                            <div class="flex justify-between items-center py-1 border-b border-slate-100 dark:border-slate-800/60">
+                                <span class="text-slate-400">Contact Email:</span>
+                                <a id="hero-email-display" href="mailto:sachin300305@outlook.com" class="text-slate-800 dark:text-slate-200 font-semibold hover:text-brand-500">sachin300305@outlook.com</a>
+                            </div>
+                            <div class="flex justify-between items-center py-1">
+                                <span class="text-slate-400">Target Role:</span>
+                                <span class="text-emerald-500 font-bold">AI Engineer</span>
+                            </div>
+                        </div>
+
+                        <!-- Quote Card -->
+                        <div class="mt-4 p-3 bg-slate-100/80 dark:bg-slate-900/80 rounded-xl text-xs text-slate-600 dark:text-slate-400 italic border border-slate-200/50 dark:border-slate-800 leading-relaxed">
+                            "This is not just where I am. This is the record of how I got here and where I am going."
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Chapter 01 — Journey Trail Node Visual -->
+        <section id="journey-map" class="space-y-6 pt-4">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-2 border-b border-slate-200 dark:border-slate-800 pb-4">
+                <div>
+                    <span class="text-xs font-mono uppercase tracking-widest text-brand-500 font-bold">Interactive Evolution Trail</span>
+                    <h2 class="text-2xl font-bold text-slate-900 dark:text-white">Developer Evolution Trail</h2>
+                </div>
+                <p class="text-xs text-slate-500 dark:text-slate-400">Select any phase node to inspect milestones</p>
+            </div>
+
+            <!-- Milestone Nodes Grid -->
+            <div id="journey-nodes-container" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
+                <!-- Rendered dynamically -->
+            </div>
+
+            <!-- Node Detail Card -->
+            <div id="node-detail-card" class="glass-panel p-6 rounded-2xl transition-all duration-300 hidden">
+                <div class="flex items-start justify-between">
+                    <div class="space-y-1">
+                        <span id="node-phase-tag" class="text-xs font-mono px-2.5 py-1 rounded bg-brand-500/10 text-brand-500 font-bold">PHASE</span>
+                        <h3 id="node-title" class="text-lg font-bold text-slate-900 dark:text-white">Node Title</h3>
+                        <p id="node-timeline" class="text-xs text-slate-500 font-mono">2023 - 2025</p>
+                    </div>
+                    <button id="close-node-detail" class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 p-1">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+                <p id="node-description" class="mt-3 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">Description goes here.</p>
+                
+                <div class="mt-4 pt-3 border-t border-slate-200 dark:border-slate-800 flex flex-wrap gap-2" id="node-tech-tags">
+                    <!-- Tech tags injected -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Chapter 02 — "NOW" Section -->
+        <section id="now" class="space-y-6">
+            <div class="border-b border-slate-200 dark:border-slate-800 pb-4 flex items-center justify-between">
+                <div>
+                    <span class="text-xs font-mono uppercase tracking-widest text-brand-500 font-bold">Real-time Focus</span>
+                    <h2 class="text-2xl font-bold text-slate-900 dark:text-white">What I'm Doing Now</h2>
+                </div>
+                <span class="text-xs font-mono bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 px-3 py-1 rounded-full flex items-center gap-1.5 font-bold">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span> Live Radar
+                </span>
+            </div>
+
+            <div id="now-cards-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+                <!-- Rendered dynamically -->
+            </div>
+        </section>
+
+        <!-- Chapter 03 — Story & Education -->
+        <section id="story" class="space-y-8">
+            <div class="border-b border-slate-200 dark:border-slate-800 pb-4">
+                <span class="text-xs font-mono uppercase tracking-widest text-brand-500 font-bold">Chapters 01 – 03</span>
+                <h2 class="text-2xl font-bold text-slate-900 dark:text-white">My Story & Academic History</h2>
+                <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Honest record of school completion and current engineering education.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                <!-- Narrative Story Card -->
+                <div class="lg:col-span-5 space-y-4">
+                    <div class="glass-panel p-6 rounded-2xl space-y-4">
+                        <h3 class="text-lg font-semibold text-slate-900 dark:text-white flex items-center gap-2">
+                            <i class="fa-solid fa-book-open text-brand-500"></i>
+                            <span>The Journey Narrative</span>
+                        </h3>
+                        <div class="space-y-3 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                            <p>
+                                My academic journey began at <strong>Saraswati Vihar English Medium School</strong>, where I completed Class 10 in March 2023 and Class 12 in March 2025.
+                            </p>
+                            <p>
+                                Currently, I am pursuing my <strong>B.Tech in Computer Science Engineering (Data Science)</strong> at <strong>Shri Shankaracharya Technical Campus</strong> (2025–2029).
+                            </p>
+                            <p>
+                                Instead of portraying fake corporate experience, I present myself honestly as a student developer building fundamental strength in C++, Data Structures, Web Engineering, and Data Science.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Education Timeline Container -->
+                <div class="lg:col-span-7">
+                    <div class="glass-panel p-6 rounded-2xl">
+                        <h3 class="text-lg font-semibold text-slate-900 dark:text-white mb-6 flex items-center gap-2">
+                            <i class="fa-solid fa-graduation-cap text-brand-500"></i>
+                            <span>Academic Record</span>
+                        </h3>
+
+                        <div id="education-timeline-container" class="relative pl-6 space-y-8 border-l-2 border-slate-200 dark:border-slate-800">
+                            <!-- Rendered dynamically -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chapter 03 — Skill Matrix -->
+        <section id="skills" class="space-y-8">
+            <div class="border-b border-slate-200 dark:border-slate-800 pb-4 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+                <div>
+                    <span class="text-xs font-mono uppercase tracking-widest text-brand-500 font-bold">Chapters 04 & 05</span>
+                    <h2 class="text-2xl font-bold text-slate-900 dark:text-white">Learning Matrix & Skills</h2>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Authentic status labels without fabricated percentages.</p>
+                </div>
+
+                <!-- Skill Filter Tabs -->
+                <div id="skill-category-filters" class="flex flex-wrap gap-2 text-xs font-mono">
+                    <button data-cat="all" class="skill-cat-btn px-3 py-1.5 rounded-lg bg-brand-600 text-white font-medium transition-all">All</button>
+                    <button data-cat="programming" class="skill-cat-btn px-3 py-1.5 rounded-lg bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-300 dark:hover:bg-slate-700 transition-all">Programming</button>
+                    <button data-cat="cs" class="skill-cat-btn px-3 py-1.5 rounded-lg bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-300 dark:hover:bg-slate-700 transition-all">CS Core</button>
+                    <button data-cat="web" class="skill-cat-btn px-3 py-1.5 rounded-lg bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-300 dark:hover:bg-slate-700 transition-all">Web Dev</button>
+                    <button data-cat="data" class="skill-cat-btn px-3 py-1.5 rounded-lg bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-300 dark:hover:bg-slate-700 transition-all">Data & AI</button>
+                </div>
+            </div>
+
+            <div id="skills-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                <!-- Rendered dynamically -->
+            </div>
+        </section>
+
+        <!-- Chapter 04 — Projects Showcase -->
+        <section id="projects" class="space-y-8">
+            <div class="border-b border-slate-200 dark:border-slate-800 pb-4 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+                <div>
+                    <span class="text-xs font-mono uppercase tracking-widest text-brand-500 font-bold">Chapter 04</span>
+                    <h2 class="text-2xl font-bold text-slate-900 dark:text-white">Projects & Lab Experiments</h2>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Hands-on applications built during learning modules.</p>
+                </div>
+
+                <!-- Project Category Tabs -->
+                <div id="project-category-tabs" class="flex flex-wrap gap-2 text-xs font-mono">
+                    <button data-proj-cat="all" class="proj-tab-btn px-3 py-1.5 rounded-lg bg-brand-600 text-white transition-all">All</button>
+                    <button data-proj-cat="web" class="proj-tab-btn px-3 py-1.5 rounded-lg bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 transition-all">Web</button>
+                    <button data-proj-cat="cpp" class="proj-tab-btn px-3 py-1.5 rounded-lg bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 transition-all">C++</button>
+                    <button data-proj-cat="data" class="proj-tab-btn px-3 py-1.5 rounded-lg bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 transition-all">Data Science</button>
+                </div>
+            </div>
+
+            <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Rendered dynamically -->
+            </div>
+        </section>
+
+        <!-- Chapter 05 — Live GitHub Repositories -->
+        <section id="github" class="glass-panel p-6 sm:p-8 rounded-3xl space-y-6">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200 dark:border-slate-800 pb-4">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-xl bg-slate-900 dark:bg-slate-800 text-white flex items-center justify-center text-xl shadow-md">
+                        <i class="fa-brands fa-github"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg text-slate-900 dark:text-white">Live GitHub Integration</h3>
+                        <p id="github-username-display" class="text-xs font-mono text-slate-500 dark:text-slate-400">@GetReadysachin</p>
+                    </div>
+                </div>
+
+                <a id="github-external-link" href="https://github.com/GetReadysachin" target="_blank" rel="noopener noreferrer" class="inline-flex items-center space-x-2 text-xs font-mono text-brand-500 hover:text-brand-600 transition-colors font-bold">
+                    <span>Visit @GetReadysachin Profile</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+            </div>
+
+            <!-- Dynamic Repos Grid -->
+            <div id="github-repos-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <!-- Live repos fetched via JS -->
+            </div>
+        </section>
+
+        <!-- Chapter 06 — Career Roadmap -->
+        <section id="roadmap" class="space-y-8">
+            <div class="border-b border-slate-200 dark:border-slate-800 pb-4">
+                <span class="text-xs font-mono uppercase tracking-widest text-brand-500 font-bold">Chapter 06</span>
+                <h2 class="text-2xl font-bold text-slate-900 dark:text-white">Career Direction Roadmap</h2>
+                <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Target trajectory: Developer &rarr; Data Science &rarr; AI Engineer.</p>
+            </div>
+
+            <div id="roadmap-stages-container" class="grid grid-cols-1 md:grid-cols-5 gap-4">
+                <!-- Rendered dynamically -->
+            </div>
+        </section>
+
+        <!-- Chapter 07 — Daily Learning Log & Canvas Chart -->
+        <section id="logs" class="space-y-8">
+            <div class="border-b border-slate-200 dark:border-slate-800 pb-4 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+                <div>
+                    <span class="text-xs font-mono uppercase tracking-widest text-brand-500 font-bold">Chapter 07</span>
+                    <h2 class="text-2xl font-bold text-slate-900 dark:text-white">Daily Study Log & Analytics</h2>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Real hours logged across learning, building, and practicing.</p>
+                </div>
+
+                <div class="flex items-center space-x-3">
+                    <button id="add-log-btn" class="px-3.5 py-2 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-mono text-xs font-medium transition-all shadow-md flex items-center space-x-2 active:scale-95">
+                        <i class="fa-solid fa-plus text-[10px]"></i>
+                        <span>+ Record Study Session</span>
+                    </button>
+
+                    <div id="log-time-filter" class="flex space-x-1 font-mono text-xs bg-slate-200/80 dark:bg-slate-800/80 p-1 rounded-xl">
+                        <button data-period="today" class="log-filter-btn px-3 py-1 rounded-lg text-slate-700 dark:text-slate-300 transition-all font-medium">Today</button>
+                        <button data-period="week" class="log-filter-btn px-3 py-1 rounded-lg bg-brand-600 text-white transition-all font-medium">This Week</button>
+                        <button data-period="all" class="log-filter-btn px-3 py-1 rounded-lg text-slate-700 dark:text-slate-300 transition-all font-medium">History</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dynamic Metrics Summary Cards -->
+            <div id="log-stats-summary" class="grid grid-cols-3 gap-3">
+                <!-- Rendered via JS -->
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                <!-- Log Entry List -->
+                <div class="lg:col-span-7 space-y-4">
+                    <div id="daily-log-entries" class="space-y-3">
+                        <!-- Rendered via JS -->
+                    </div>
+                </div>
+
+                <!-- Canvas Chart Widget -->
+                <div class="lg:col-span-5 space-y-4">
+                    <div class="glass-panel p-6 rounded-2xl space-y-4">
+                        <div class="flex items-center justify-between">
+                            <h3 class="font-bold text-base text-slate-900 dark:text-white flex items-center gap-2">
+                                <i class="fa-solid fa-chart-column text-brand-500"></i>
+                                <span>Weekly Learning Activity</span>
+                            </h3>
+                            <span class="text-[10px] font-mono text-slate-400">Dynamic Hours</span>
+                        </div>
+
+                        <!-- Canvas Chart Element -->
+                        <div class="relative h-48 w-full flex items-center justify-center">
+                            <canvas id="learning-chart" class="w-full h-full"></canvas>
+                        </div>
+
+                        <p class="text-[11px] text-slate-500 dark:text-slate-400 text-center italic">
+                            Activity chart dynamically calculated from logged learning sessions.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chapter 08 — Developer Journal & Reflections -->
+        <section id="journal" class="space-y-8">
+            <div class="border-b border-slate-200 dark:border-slate-800 pb-4 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+                <div>
+                    <span class="text-xs font-mono uppercase tracking-widest text-brand-500 font-bold">Chapter 08 — Reflections</span>
+                    <h2 class="text-2xl font-bold text-slate-900 dark:text-white">Developer Journal & Lessons</h2>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Honest lessons from bugs, reflections, and learning milestones.</p>
+                </div>
+
+                <div id="journal-category-filter" class="flex flex-wrap gap-2 text-xs font-mono">
+                    <button data-jcat="all" class="jcat-btn px-3 py-1.5 rounded-lg bg-brand-600 text-white">All Notes</button>
+                    <button data-jcat="Mistakes" class="jcat-btn px-3 py-1.5 rounded-lg bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Lessons from Mistakes</button>
+                    <button data-jcat="Reflections" class="jcat-btn px-3 py-1.5 rounded-lg bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Reflections</button>
+                </div>
+            </div>
+
+            <div id="journal-entries-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Rendered via JS -->
+            </div>
+        </section>
+
+        <!-- Visitor Guestbook Section -->
+        <section id="guestbook" class="space-y-8">
+            <div class="border-b border-slate-200 dark:border-slate-800 pb-4">
+                <span class="text-xs font-mono uppercase tracking-widest text-brand-500 font-bold">Community</span>
+                <h2 class="text-2xl font-bold text-slate-900 dark:text-white">Visitor Guestbook</h2>
+                <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Leave a message or encouragement for Sachin's journey.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                <!-- Guestbook Form -->
+                <div class="lg:col-span-5">
+                    <form id="guestbook-form" class="glass-panel p-6 rounded-2xl space-y-4">
+                        <h3 class="font-bold text-slate-900 dark:text-white text-base">Sign the Guestbook</h3>
+                        
+                        <div class="space-y-1">
+                            <label for="gb-name" class="text-xs font-medium text-slate-700 dark:text-slate-300">Your Name *</label>
+                            <input type="text" id="gb-name" required placeholder="e.g., Alex Rivera" class="w-full px-3 py-2 rounded-xl text-xs bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-800 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-brand-500">
+                        </div>
+
+                        <div class="space-y-1">
+                            <label for="gb-msg" class="text-xs font-medium text-slate-700 dark:text-slate-300">Message *</label>
+                            <textarea id="gb-msg" rows="3" required placeholder="Great progress on Data Science and Web Dev!" class="w-full px-3 py-2 rounded-xl text-xs bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-800 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-brand-500"></textarea>
+                        </div>
+
+                        <!-- Anti-spam Captcha -->
+                        <div class="space-y-1 pt-1">
+                            <label id="captcha-label" for="gb-captcha" class="text-xs font-mono text-slate-600 dark:text-slate-400">Anti-Spam Check: 3 + 4 = ?</label>
+                            <input type="number" id="gb-captcha" required placeholder="Answer" class="w-full px-3 py-2 rounded-xl text-xs bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-800 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-brand-500">
+                        </div>
+
+                        <button type="submit" class="w-full py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-medium text-xs transition-all shadow-md active:scale-95">
+                            Submit Message
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Messages Feed -->
+                <div class="lg:col-span-7">
+                    <div id="guestbook-feed" class="space-y-3">
+                        <!-- Rendered via JS -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="glass-panel p-8 rounded-3xl text-center space-y-6">
+            <div class="max-w-2xl mx-auto space-y-3">
+                <span class="text-xs font-mono uppercase tracking-widest text-brand-500 font-bold">Get In Touch</span>
+                <h2 class="text-3xl font-extrabold text-slate-900 dark:text-white">Connect with Sachin</h2>
+                <p class="text-sm text-slate-600 dark:text-slate-400">
+                    Always open to discussions regarding computer science, peer study, software engineering, and artificial intelligence.
+                </p>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-4 text-xs font-mono">
+                <a id="contact-email-link" href="mailto:sachin300305@outlook.com" class="px-5 py-3 rounded-xl bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-900 dark:text-slate-100 transition-all flex items-center space-x-2 font-semibold">
+                    <i class="fa-solid fa-envelope text-brand-500"></i>
+                    <span id="contact-email-text">sachin300305@outlook.com</span>
+                </a>
+
+                <a id="contact-github-link" href="https://github.com/GetReadysachin" target="_blank" rel="noopener noreferrer" class="px-5 py-3 rounded-xl bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-900 dark:text-slate-100 transition-all flex items-center space-x-2 font-semibold">
+                    <i class="fa-brands fa-github text-brand-500"></i>
+                    <span>GitHub: GetReadysachin</span>
+                </a>
+
+                <a id="contact-linkedin-link" href="https://linkedin.com/in/sachinsharma" target="_blank" rel="noopener noreferrer" class="px-5 py-3 rounded-xl bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-900 dark:text-slate-100 transition-all flex items-center space-x-2 font-semibold">
+                    <i class="fa-brands fa-linkedin text-brand-500"></i>
+                    <span>LinkedIn Profile</span>
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-200 dark:border-slate-800 py-8 text-center text-xs text-slate-500 dark:text-slate-400 font-mono">
+        <div class="max-w-7xl mx-auto px-4 space-y-2">
+            <p>Sachin Sharma — Developer Journey Platform © 2026</p>
+            <p class="text-[10px] text-slate-400 dark:text-slate-500">Shri Shankaracharya Technical Campus • B.Tech CSE (Data Science) 2025–2029</p>
+        </div>
+    </footer>
+
+    <!-- Case Study Modal -->
+    <div id="case-study-modal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4 hidden">
+        <div class="glass-panel w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-2xl p-6 space-y-6 relative shadow-2xl">
+            <button id="close-case-study" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 p-2 text-lg">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div id="case-study-content"></div>
+        </div>
+    </div>
+
+    <!-- Global Search Modal -->
+    <div id="search-modal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm flex items-start justify-center p-4 pt-20 hidden">
+        <div class="glass-panel w-full max-w-xl rounded-2xl p-4 space-y-4 relative shadow-2xl">
+            <div class="relative">
+                <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3.5 text-slate-400 text-sm"></i>
+                <input type="text" id="global-search-input" placeholder="Search skills, projects, notes, timeline entries..." class="w-full pl-10 pr-10 py-2.5 rounded-xl text-sm bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-800 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-brand-500">
+                <button id="close-search-modal" class="absolute right-3.5 top-2.5 text-slate-400 hover:text-slate-600 text-sm p-1">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div id="search-results-list" class="max-h-80 overflow-y-auto space-y-2 text-xs">
+                <p class="text-slate-400 text-center py-6">Type to search across the entire developer journey platform...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Resume Info Modal -->
+    <div id="resume-modal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4 hidden">
+        <div class="glass-panel w-full max-w-md rounded-2xl p-6 space-y-4 relative shadow-2xl text-center">
+            <button id="close-resume-modal" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 p-1">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="w-12 h-12 rounded-full bg-brand-500/10 text-brand-500 flex items-center justify-center mx-auto text-xl">
+                <i class="fa-solid fa-file-contract"></i>
+            </div>
+            <h3 class="font-bold text-lg text-slate-900 dark:text-white">Resume Document Status</h3>
+            <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                As a student currently in B.Tech CSE (2025–2029), academic coursework and project foundations are currently actively being documented.
+            </p>
+            <div class="p-3 bg-slate-100 dark:bg-slate-900/80 rounded-xl font-mono text-[11px] text-slate-500 text-left space-y-1">
+                <p>• Name: Sachin Sharma</p>
+                <p>• Institution: Shri Shankaracharya Technical Campus</p>
+                <p>• Major: Computer Science Engineering (Data Science)</p>
+                <p>• Expected Graduation: March 2029</p>
+                <p>• Contact: sachin300305@outlook.com</p>
+            </div>
+            <button id="modal-resume-close-btn" class="w-full py-2 rounded-xl bg-slate-200 dark:bg-slate-800 text-slate-800 dark:text-slate-200 text-xs font-semibold">
+                Close Notice
+            </button>
+        </div>
+    </div>
+
+    <!-- Add Study Log Modal -->
+    <div id="add-log-modal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4 hidden">
+        <div class="glass-panel w-full max-w-lg rounded-2xl p-6 space-y-4 relative shadow-2xl">
+            <button id="close-add-log-modal" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 p-1">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="space-y-1">
+                <h3 class="font-bold text-lg text-slate-900 dark:text-white">Record Daily Study Log</h3>
+                <p class="text-xs text-slate-500 dark:text-slate-400">Log topic studied, duration, and key takeaways.</p>
+            </div>
+
+            <form id="add-log-form" class="space-y-3 text-xs">
+                <div class="grid grid-cols-2 gap-3">
+                    <div class="space-y-1">
+                        <label class="font-medium text-slate-700 dark:text-slate-300">Date *</label>
+                        <input type="text" id="log-form-date" required value="Sept 30, 2026" class="w-full px-3 py-2 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-800 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-brand-500">
+                    </div>
+                    <div class="space-y-1">
+                        <label class="font-medium text-slate-700 dark:text-slate-300">Hours Studied *</label>
+                        <input type="number" step="0.5" id="log-form-hours" required value="3.0" min="0.5" max="16" class="w-full px-3 py-2 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-800 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-brand-500">
+                    </div>
+                </div>
+
+                <div class="space-y-1">
+                    <label class="font-medium text-slate-700 dark:text-slate-300">Topic Studied *</label>
+                    <input type="text" id="log-form-topic" required placeholder="e.g., C++ Dynamic Vectors & Algorithms" class="w-full px-3 py-2 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-800 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-brand-500">
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <div class="space-y-1">
+                        <label class="font-medium text-slate-700 dark:text-slate-300">Category *</label>
+                        <select id="log-form-category" class="w-full px-3 py-2 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-800 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-brand-500">
+                            <option value="Learning">Learning</option>
+                            <option value="Practicing" selected>Practicing</option>
+                            <option value="Building">Building</option>
+                            <option value="Exploring">Exploring</option>
+                        </select>
+                    </div>
+                    <div class="space-y-1">
+                        <label class="font-medium text-slate-700 dark:text-slate-300">Difficulty *</label>
+                        <select id="log-form-difficulty" class="w-full px-3 py-2 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-800 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-brand-500">
+                            <option value="Easy">Easy</option>
+                            <option value="Moderate" selected>Moderate</option>
+                            <option value="Challenging">Challenging</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="space-y-1">
+                    <label class="font-medium text-slate-700 dark:text-slate-300">Key Takeaway / Notes *</label>
+                    <textarea id="log-form-note" rows="2" required placeholder="Main concepts mastered or challenges faced..." class="w-full px-3 py-2 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-800 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-brand-500"></textarea>
+                </div>
+
+                <button type="submit" class="w-full py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-medium transition-all shadow-md active:scale-95">
+                    Save Study Entry
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Application Script Logic -->
+    <script>
+        /*
+         * Centralized Data Store (APP_STATE)
+         */
+        const APP_STATE = {
+            profile: {
+                name: "Sachin Sharma",
+                degree: "B.Tech CSE — Data Science",
+                institution: "Shri Shankaracharya Technical Campus",
+                tagline: "Building my skills, one project at a time.",
+                summary: "A student developer documenting the journey from programming fundamentals to full-stack development, data science and artificial intelligence.",
+                status: "Currently: Learning • Building • Exploring AI",
+                githubUsername: "GetReadysachin",
+                email: "sachin300305@outlook.com",
+                linkedin: "https://linkedin.com/in/sachinsharma"
+            },
+            
+            now: [
+                { category: "Learning", text: "Object-Oriented C++ & Data Structures Fundamentals", icon: "fa-book" },
+                { category: "Practicing", text: "Problem Solving on Codechef / LeetCode (Array & Pointers)", icon: "fa-code" },
+                { category: "Building", text: "Personal Developer Journey Platform & Portfolio UI", icon: "fa-hammer" },
+                { category: "Exploring", text: "Python for Data Analysis (NumPy & Pandas basics)", icon: "fa-compass" },
+                { category: "Next Target", text: "Basic Web API Integration & Modular JS Architecture", icon: "fa-bullseye" }
+            ],
+
+            journeyNodes: [
+                { id: "school", phase: "Schooling", title: "Saraswati Vihar School", years: "2021–2025", desc: "Completed Class 10 (Mar 2023) and Class 12 (Mar 2025). Developed strong foundation in Mathematics, Physics, and logical problem solving.", tech: ["Mathematics", "Physics", "Computer Science Intro"] },
+                { id: "btech", phase: "Current Degree", title: "Shri Shankaracharya Tech Campus", years: "2025–2029", desc: "Enrolled in B.Tech Computer Science Engineering with specialization in Data Science. Building foundational core CS knowledge.", tech: ["B.Tech CSE", "Data Science", "Engineering Math"] },
+                { id: "programming", phase: "Foundation", title: "C & C++ Fundamentals", years: "2025–Present", desc: "Learning low-level pointer arithmetic, dynamic memory management, Object-Oriented Design, and Data Structures.", tech: ["C", "C++", "OOP", "Pointers"] },
+                { id: "webdev", phase: "Development", title: "Frontend & Web Tech", years: "Current Focus", desc: "Building responsive single-page interfaces, semantic HTML5, Tailwind CSS design systems, and vanilla DOM JS.", tech: ["HTML5", "CSS3", "JavaScript", "Tailwind"] },
+                { id: "datascience", phase: "Specialization", title: "Python Data Science", years: "Next Focus", desc: "Exploring data analytics stack: Python, NumPy, Pandas, Matplotlib, and exploratory data analysis.", tech: ["Python", "NumPy", "Pandas", "EDA"] },
+                { id: "ai", phase: "Long Term Goal", title: "Artificial Intelligence & ML", years: "Future Target", desc: "Targeting machine learning algorithms, deep neural networks, and model deployment as an AI Engineer.", tech: ["Machine Learning", "Deep Learning", "Neural Nets"] }
+            ],
+
+            education: [
+                {
+                    institution: "Shri Shankaracharya Technical Campus",
+                    degree: "B.Tech — Computer Science Engineering (Data Science)",
+                    period: "2025 – 2029",
+                    status: "Enrolled / In Progress",
+                    notes: "Focusing on core CS subjects: Discrete Math, Data Structures, OOPs in C++, and introductory Python for Data Science."
+                },
+                {
+                    institution: "Saraswati Vihar English Medium School",
+                    degree: "Class 12 (Senior Secondary)",
+                    period: "Completed March 2025",
+                    status: "Graduated",
+                    notes: "Physics, Chemistry, Mathematics background."
+                },
+                {
+                    institution: "Saraswati Vihar English Medium School",
+                    degree: "Class 10 (Secondary School)",
+                    period: "Completed March 2023",
+                    status: "Graduated",
+                    notes: "Secondary academic foundation."
+                }
+            ],
+
+            skills: [
+                { name: "C Language", category: "programming", state: "Familiar", desc: "Memory management, pointers, and structured procedural programming." },
+                { name: "C++", category: "programming", state: "Learning / Practicing", desc: "Object-oriented design, classes, STL containers, and algorithm logic." },
+                { name: "Python", category: "programming", state: "Learning", desc: "Basic scripting, control flow, and syntax introductory concepts." },
+                { name: "OOP Fundamentals", category: "cs", state: "Practicing", desc: "Encapsulation, inheritance, polymorphism, and abstraction principles." },
+                { name: "Data Structures", category: "cs", state: "Learning", desc: "Arrays, Linked Lists, Stacks, Queues, and basic Tree structures." },
+                { name: "HTML5 & CSS3", category: "web", state: "Familiar", desc: "Semantic structure, responsive styling, flexbox, and grid layouts." },
+                { name: "Tailwind CSS", category: "web", state: "Practicing", desc: "Utility-first design tokens, dark mode adaptation, and fluid UI layout." },
+                { name: "JavaScript (ES6+)", category: "web", state: "Learning / Building", desc: "DOM manipulation, dynamic rendering, async JS, and single-page apps." },
+                { name: "Python for Data Science", category: "data", state: "Future Target", desc: "NumPy, Pandas, statistical analysis, and data visualization." },
+                { name: "Machine Learning", category: "data", state: "Future Target", desc: "Supervised and unsupervised learning models." }
+            ],
+
+            projects: [
+                {
+                    id: "proj-journey-platform",
+                    title: "Personal Developer Journey Platform",
+                    category: "web",
+                    status: "Completed",
+                    date: "September 2026",
+                    description: "A narrative-driven portfolio & study tracking platform built with responsive single-file architecture.",
+                    problem: "Standard resumes fail to showcase the actual learning process and growth trajectory of a student developer.",
+                    solution: "Designed a responsive journey portal with interactive timelines, study logs, skill status trackers, and case study overlays.",
+                    tech: ["HTML5", "Tailwind CSS", "JavaScript", "Canvas API"],
+                    github: "https://github.com/GetReadysachin/developer-journey-platform",
+                    caseStudyAvailable: true
+                },
+                {
+                    id: "proj-cpp-dsa-lab",
+                    title: "C++ Data Structures & Algorithms Lab",
+                    category: "cpp",
+                    status: "Building",
+                    date: "Ongoing",
+                    description: "Modular implementations of core data structures and sorting algorithms in modern C++.",
+                    problem: "Hands-on code implementations required to reinforce theoretical CS coursework.",
+                    solution: "Creating modular code files for Linked Lists, Stacks, Binary Trees, and sorting algorithms.",
+                    tech: ["C++17", "STL", "GDB"],
+                    github: "https://github.com/GetReadysachin/cpp-dsa-lab",
+                    caseStudyAvailable: false
+                },
+                {
+                    id: "proj-data-eda-starter",
+                    title: "Python Data Analysis Exploratory Suite",
+                    category: "data",
+                    status: "Planned",
+                    date: "Future Phase",
+                    description: "Initial datasets analysis exploring Pandas dataframes, missing value handling, and chart plotting.",
+                    problem: "Upcoming coursework requires practical familiarity with real-world dataset cleaning.",
+                    solution: "Planned Jupyter notebooks suite exploring public datasets.",
+                    tech: ["Python", "Pandas", "Matplotlib"],
+                    github: null,
+                    caseStudyAvailable: false
+                }
+            ],
+
+            roadmap: [
+                { stage: "01. Fundamentals", title: "Developer Basics", status: "Current Focus", desc: "Master C++, Data Structures, OOP, and modern Git workflows." },
+                { stage: "02. Frontend Web", title: "Full-Stack Foundation", status: "In Progress", desc: "Master responsive UI creation, JavaScript DOM, APIs, and web structure." },
+                { stage: "03. Data Analytics", title: "Data Science Specialization", status: "Next Target", desc: "Master Python data stack (NumPy, Pandas, Matplotlib) and exploratory analysis." },
+                { stage: "04. Machine Learning", title: "ML & Predictive Modeling", status: "Exploring", desc: "Learn Scikit-Learn, regression models, classification, and model evaluation." },
+                { stage: "05. AI Systems", title: "AI Engineer", status: "Long-term Goal", desc: "Master neural networks, deep learning frameworks, and large language models." }
+            ],
+
+            dailyLogs: [
+                { date: "Sept 30, 2026", hours: 3.5, topic: "C++ STL Vectors & Dynamic Arrays", category: "Practicing", difficulty: "Moderate", note: "Reviewed dynamic memory allocation, vector capacity growth, and pointer syntax.", isToday: true },
+                { date: "Sept 29, 2026", hours: 4.0, topic: "Tailwind CSS Design Tokens & Canvas API", category: "Building", difficulty: "Challenging", note: "Integrated responsive chart rendering and glassmorphic cards.", isToday: false },
+                { date: "Sept 28, 2026", hours: 2.5, topic: "Array Sorting Algorithms (Bubble, Selection)", category: "Learning", difficulty: "Easy", note: "Analyzed time complexity constraints: O(N^2) comparison counts.", isToday: false },
+                { date: "Sept 26, 2026", hours: 3.0, topic: "HTML5 Semantic Elements & Accessibility", category: "Learning", difficulty: "Easy", note: "Ensured keyboard navigation focus states and contrast ratios.", isToday: false }
+            ],
+
+            journalEntries: [
+                {
+                    id: "j-1",
+                    title: "Lesson from Bug: Pointer Dangling in C++ Stack Implementation",
+                    category: "Mistakes",
+                    date: "Sept 27, 2026",
+                    summary: "What happened -> What went wrong -> What I learned -> What I will do differently",
+                    content: "<strong>What Happened:</strong> While implementing a custom dynamic Stack class in C++, program crashed with Segmentation Fault.<br><br><strong>What Went Wrong:</strong> Deallocated internal memory array without updating the top pointer variable.<br><br><strong>What I Learned:</strong> Always reset pointers to nullptr immediately after memory release.<br><br><strong>Action Plan:</strong> Standardize RAII patterns and utilize smart pointers where applicable."
+                },
+                {
+                    id: "j-2",
+                    title: "Embracing the Student Developer Identity",
+                    category: "Reflections",
+                    date: "Sept 22, 2026",
+                    summary: "Why avoiding fake accomplishments builds real credibility.",
+                    content: "Instead of pretending to have 5 years of experience or claiming mastery over languages I started recently, I decided to build a platform that honestly tracks my learning journey from B.Tech Year 1 through graduation in 2029."
+                }
+            ],
+
+            guestbook: [
+                { name: "Prof. R. Verma", message: "Great initiative documenting your B.Tech journey systematically. Keep building standard fundamentals!", date: "Sept 29, 2026" },
+                { name: "Rahul S.", message: "Inspiring portfolio concept! Best of luck with the Data Science specialization.", date: "Sept 28, 2026" }
+            ]
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initTheme();
+            renderHeroData();
+            renderJourneyNodes();
+            renderNowCards();
+            renderEducation();
+            renderSkills('all');
+            renderProjects('all');
+            fetchLiveGitHubRepos();
+            renderRoadmap();
+            renderDailyLogs('week');
+            renderJournal('all');
+            renderGuestbook();
+            setupEventListeners();
+        });
+
+        function initTheme() {
+            const savedTheme = localStorage.getItem('sachin_theme') || 'dark';
+            if (savedTheme === 'dark') {
+                document.documentElement.classList.add('dark');
+                document.getElementById('theme-icon').className = 'fa-solid fa-sun';
+            } else {
+                document.documentElement.classList.remove('dark');
+                document.getElementById('theme-icon').className = 'fa-solid fa-moon';
+            }
+        }
+
+        function toggleTheme() {
+            const isDark = document.documentElement.classList.toggle('dark');
+            localStorage.setItem('sachin_theme', isDark ? 'dark' : 'light');
+            document.getElementById('theme-icon').className = isDark ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+            renderChart();
+        }
+
+        function renderHeroData() {
+            document.getElementById('hero-status-text').textContent = APP_STATE.profile.status;
+            document.getElementById('hero-github-link').href = `https://github.com/${APP_STATE.profile.githubUsername}`;
+            document.getElementById('github-username-display').textContent = `@${APP_STATE.profile.githubUsername}`;
+            document.getElementById('github-external-link').href = `https://github.com/${APP_STATE.profile.githubUsername}`;
+            document.getElementById('contact-email-text').textContent = APP_STATE.profile.email;
+            document.getElementById('hero-email-display').textContent = APP_STATE.profile.email;
+            document.getElementById('hero-email-display').href = `mailto:${APP_STATE.profile.email}`;
+            document.getElementById('contact-email-link').href = `mailto:${APP_STATE.profile.email}`;
+            document.getElementById('contact-github-link').href = `https://github.com/${APP_STATE.profile.githubUsername}`;
+            document.getElementById('contact-linkedin-link').href = APP_STATE.profile.linkedin;
+        }
+
+        async function fetchLiveGitHubRepos() {
+            const container = document.getElementById('github-repos-container');
+            container.innerHTML = `
+                <div class="col-span-full p-8 text-center text-xs font-mono text-slate-400 space-y-2">
+                    <i class="fa-solid fa-spinner fa-spin text-lg text-brand-500"></i>
+                    <p>Fetching public repositories from GitHub (@GetReadysachin)...</p>
+                </div>
+            `;
+
+            try {
+                const response = await fetch(`https://api.github.com/users/${APP_STATE.profile.githubUsername}/repos?sort=updated&per_page=6`);
+                if (!response.ok) throw new Error('API Response Error');
+                
+                const repos = await response.json();
+
+                if (!Array.isArray(repos) || repos.length === 0) {
+                    container.innerHTML = `
+                        <div class="col-span-full p-6 rounded-xl border border-dashed border-slate-300 dark:border-slate-800 text-center space-y-2">
+                            <i class="fa-brands fa-github text-2xl text-slate-400"></i>
+                            <h4 class="font-bold text-xs text-slate-800 dark:text-slate-200">Public Repositories Initializing</h4>
+                            <p class="text-xs text-slate-600 dark:text-slate-400">
+                                Sachin's GitHub account (<a href="https://github.com/GetReadysachin" target="_blank" class="text-brand-500 underline">@GetReadysachin</a>) is being populated as coursework progresses.
+                            </p>
+                        </div>
+                    `;
+                    return;
+                }
+
+                container.innerHTML = repos.map(repo => `
+                    <div class="glass-panel p-4 rounded-xl flex flex-col justify-between space-y-3 hover:border-brand-500/50 transition-all">
+                        <div class="space-y-2">
+                            <div class="flex items-center justify-between">
+                                <h4 class="font-bold text-xs text-slate-900 dark:text-white truncate max-w-[180px]">${repo.name}</h4>
+                                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-brand-500/10 text-brand-500 font-bold">${repo.language || 'Code'}</span>
+                            </div>
+                            <p class="text-[11px] text-slate-600 dark:text-slate-400 line-clamp-2 leading-relaxed">${repo.description || 'Public repository under dynamic development.'}</p>
+                        </div>
+
+                        <div class="flex items-center justify-between text-[10px] font-mono text-slate-400 border-t border-slate-200 dark:border-slate-800/80 pt-2">
+                            <div class="flex space-x-3">
+                                <span><i class="fa-regular fa-star text-amber-500"></i> ${repo.stargazers_count}</span>
+                                <span><i class="fa-solid fa-code-fork text-slate-400"></i> ${repo.forks_count}</span>
+                            </div>
+                            <a href="${repo.html_url}" target="_blank" class="text-brand-500 hover:underline flex items-center space-x-1 font-bold">
+                                <span>View Source</span>
+                                <i class="fa-solid fa-arrow-up-right-from-square text-[8px]"></i>
+                            </a>
+                        </div>
+                    </div>
+                `).join('');
+
+            } catch (error) {
+                container.innerHTML = `
+                    <div class="col-span-full p-6 rounded-xl border border-dashed border-slate-300 dark:border-slate-800 text-center space-y-2">
+                        <i class="fa-brands fa-github text-2xl text-slate-400"></i>
+                        <h4 class="font-bold text-xs text-slate-800 dark:text-slate-200">GitHub Profile: @GetReadysachin</h4>
+                        <p class="text-xs text-slate-600 dark:text-slate-400">
+                            Repositories and learning code are being actively built. Follow the journey on GitHub.
+                        </p>
+                        <a href="https://github.com/GetReadysachin" target="_blank" class="inline-block mt-2 text-xs font-mono text-brand-500 hover:underline font-bold">
+                            Open @GetReadysachin on GitHub &rarr;
+                        </a>
+                    </div>
+                `;
+            }
+        }
+
+        function renderJourneyNodes() {
+            const container = document.getElementById('journey-nodes-container');
+            container.innerHTML = APP_STATE.journeyNodes.map(node => `
+                <div onclick="showNodeDetail('${node.id}')" class="p-4 rounded-xl glass-panel hover:border-brand-500 cursor-pointer transition-all hover:-translate-y-1 group">
+                    <div class="text-[10px] font-mono text-brand-500 font-bold mb-1">${node.phase}</div>
+                    <h3 class="font-bold text-xs text-slate-800 dark:text-slate-200 group-hover:text-brand-500 transition-colors">${node.title}</h3>
+                    <div class="text-[10px] text-slate-400 font-mono mt-2">${node.years}</div>
+                </div>
+            `).join('');
+
+            if (APP_STATE.journeyNodes.length > 0) {
+                showNodeDetail(APP_STATE.journeyNodes[0].id);
+            }
+        }
+
+        function showNodeDetail(id) {
+            const node = APP_STATE.journeyNodes.find(n => n.id === id);
+            if (!node) return;
+
+            const card = document.getElementById('node-detail-card');
+            card.classList.remove('hidden');
+            document.getElementById('node-phase-tag').textContent = node.phase;
+            document.getElementById('node-title').textContent = node.title;
+            document.getElementById('node-timeline').textContent = node.years;
+            document.getElementById('node-description').textContent = node.desc;
+            
+            document.getElementById('node-tech-tags').innerHTML = node.tech.map(t => `
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300">${t}</span>
+            `).join('');
+        }
+
+        function renderNowCards() {
+            const grid = document.getElementById('now-cards-grid');
+            grid.innerHTML = APP_STATE.now.map(item => `
+                <div class="glass-panel p-4 rounded-2xl space-y-2 border-l-4 border-l-brand-500 hover:border-brand-500 transition-all">
+                    <div class="flex items-center space-x-2 text-brand-500 text-xs font-mono">
+                        <i class="fa-solid ${item.icon}"></i>
+                        <span class="font-bold">${item.category}</span>
+                    </div>
+                    <p class="text-xs text-slate-700 dark:text-slate-300 font-medium leading-snug">${item.text}</p>
+                </div>
+            `).join('');
+        }
+
+        function renderEducation() {
+            const container = document.getElementById('education-timeline-container');
+            container.innerHTML = APP_STATE.education.map(edu => `
+                <div class="relative group">
+                    <div class="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-brand-500 border-4 border-slate-50 dark:border-slate-950"></div>
+                    <div class="space-y-1">
+                        <div class="flex flex-wrap justify-between items-center text-xs font-mono text-slate-500 dark:text-slate-400">
+                            <span>${edu.period}</span>
+                            <span class="px-2 py-0.5 rounded bg-brand-500/10 text-brand-500 font-bold">${edu.status}</span>
+                        </div>
+                        <h4 class="font-bold text-sm text-slate-900 dark:text-white">${edu.institution}</h4>
+                        <p class="text-xs font-semibold text-brand-600 dark:text-brand-400 font-mono">${edu.degree}</p>
+                        <p class="text-xs text-slate-600 dark:text-slate-400 mt-2 leading-relaxed">${edu.notes}</p>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderSkills(category) {
+            const grid = document.getElementById('skills-grid');
+            const filtered = category === 'all' 
+                ? APP_STATE.skills 
+                : APP_STATE.skills.filter(s => s.category === category);
+
+            grid.innerHTML = filtered.map(skill => `
+                <div class="glass-panel p-4 rounded-xl space-y-2 hover:border-brand-500/50 transition-all">
+                    <div class="flex justify-between items-start gap-2">
+                        <h4 class="font-bold text-xs text-slate-900 dark:text-white">${skill.name}</h4>
+                        <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-200 dark:bg-slate-800 text-brand-600 dark:text-brand-400 font-bold">${skill.state}</span>
+                    </div>
+                    <p class="text-[11px] text-slate-500 dark:text-slate-400 leading-normal">${skill.desc}</p>
+                </div>
+            `).join('');
+        }
+
+        function renderProjects(cat) {
+            const grid = document.getElementById('projects-grid');
+            const filtered = cat === 'all' 
+                ? APP_STATE.projects 
+                : APP_STATE.projects.filter(p => p.category === cat);
+
+            if (filtered.length === 0) {
+                grid.innerHTML = `
+                    <div class="col-span-full glass-panel p-8 rounded-2xl text-center space-y-3">
+                        <div class="text-3xl text-slate-400"><i class="fa-solid fa-code-branch"></i></div>
+                        <h4 class="font-bold text-sm text-slate-800 dark:text-slate-200">Building in Progress</h4>
+                        <p class="text-xs text-slate-500 max-w-md mx-auto">Projects for this category are in planning and code testing stage. Repositories will be published as modules complete.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            grid.innerHTML = filtered.map(proj => `
+                <div class="glass-panel p-5 rounded-2xl flex flex-col justify-between space-y-4 hover:border-brand-500/50 transition-all">
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-center text-xs font-mono">
+                            <span class="px-2 py-0.5 rounded bg-brand-500/10 text-brand-500 font-bold">${proj.status}</span>
+                            <span class="text-slate-400 text-[10px]">${proj.date}</span>
+                        </div>
+                        <h3 class="font-bold text-base text-slate-900 dark:text-white">${proj.title}</h3>
+                        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">${proj.description}</p>
+                    </div>
+
+                    <div class="space-y-3 pt-2">
+                        <div class="flex flex-wrap gap-1.5">
+                            ${proj.tech.map(t => `<span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400">${t}</span>`).join('')}
+                        </div>
+
+                        <div class="flex items-center justify-between border-t border-slate-200 dark:border-slate-800 pt-3 text-xs font-mono">
+                            ${proj.github ? `<a href="${proj.github}" target="_blank" class="text-slate-600 hover:text-brand-500 dark:text-slate-400 flex items-center space-x-1 font-semibold"><i class="fa-brands fa-github"></i><span>Repo</span></a>` : `<span class="text-slate-400">Code Local</span>`}
+                            
+                            ${proj.caseStudyAvailable ? `
+                                <button onclick="openCaseStudy('${proj.id}')" class="text-brand-500 hover:underline flex items-center space-x-1 font-bold">
+                                    <span>Case Study</span>
+                                    <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                                </button>
+                            ` : ''}
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function openCaseStudy(projId) {
+            const proj = APP_STATE.projects.find(p => p.id === projId);
+            if (!proj) return;
+
+            const modal = document.getElementById('case-study-modal');
+            const content = document.getElementById('case-study-content');
+
+            content.innerHTML = `
+                <div class="space-y-4">
+                    <div class="space-y-1">
+                        <span class="text-xs font-mono px-2 py-0.5 rounded bg-brand-500/10 text-brand-500 font-bold">${proj.category.toUpperCase()} • ${proj.status}</span>
+                        <h2 class="text-xl font-bold text-slate-900 dark:text-white">${proj.title}</h2>
+                        <p class="text-xs text-slate-400 font-mono">${proj.date}</p>
+                    </div>
+
+                    <div class="space-y-3 text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                        <div class="p-3 bg-slate-100 dark:bg-slate-900/80 rounded-xl space-y-1">
+                            <h4 class="font-bold text-slate-800 dark:text-slate-200">Problem Statement</h4>
+                            <p>${proj.problem}</p>
+                        </div>
+
+                        <div class="p-3 bg-slate-100 dark:bg-slate-900/80 rounded-xl space-y-1">
+                            <h4 class="font-bold text-slate-800 dark:text-slate-200">Engineering Solution</h4>
+                            <p>${proj.solution}</p>
+                        </div>
+                    </div>
+
+                    <div class="pt-2">
+                        <h4 class="font-bold text-xs text-slate-800 dark:text-slate-200 mb-2">Technologies Used</h4>
+                        <div class="flex flex-wrap gap-2">
+                            ${proj.tech.map(t => `<span class="text-xs font-mono px-2.5 py-1 rounded bg-brand-500/10 text-brand-500 font-bold">${t}</span>`).join('')}
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            modal.classList.remove('hidden');
+        }
+
+        let activeLogFilter = 'week';
+
+        function renderDailyLogs(period = activeLogFilter) {
+            activeLogFilter = period;
+            const container = document.getElementById('daily-log-entries');
+            
+            let filtered = APP_STATE.dailyLogs;
+            if (period === 'today') {
+                filtered = APP_STATE.dailyLogs.filter(log => log.isToday || log.date.includes('Sept 30'));
+            } else if (period === 'week') {
+                filtered = APP_STATE.dailyLogs.slice(0, 7);
+            }
+
+            const totalHours = filtered.reduce((sum, item) => sum + parseFloat(item.hours || 0), 0);
+            const sessionCount = filtered.length;
+            const avgSession = sessionCount > 0 ? (totalHours / sessionCount).toFixed(1) : '0.0';
+
+            const statsContainer = document.getElementById('log-stats-summary');
+            if (statsContainer) {
+                statsContainer.innerHTML = `
+                    <div class="glass-panel p-3 rounded-xl text-center space-y-0.5">
+                        <span class="text-[10px] font-mono text-slate-400 block uppercase">Total Hours</span>
+                        <span class="text-sm font-bold text-brand-500 font-mono">${totalHours.toFixed(1)} hrs</span>
+                    </div>
+                    <div class="glass-panel p-3 rounded-xl text-center space-y-0.5">
+                        <span class="text-[10px] font-mono text-slate-400 block uppercase">Sessions</span>
+                        <span class="text-sm font-bold text-slate-900 dark:text-white font-mono">${sessionCount}</span>
+                    </div>
+                    <div class="glass-panel p-3 rounded-xl text-center space-y-0.5">
+                        <span class="text-[10px] font-mono text-slate-400 block uppercase">Avg / Session</span>
+                        <span class="text-sm font-bold text-emerald-500 font-mono">${avgSession} hrs</span>
+                    </div>
+                `;
+            }
+
+            if (filtered.length === 0) {
+                container.innerHTML = `
+                    <div class="glass-panel p-6 rounded-2xl text-center space-y-2">
+                        <i class="fa-solid fa-calendar-xmark text-slate-400 text-xl"></i>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">No study entries logged for the selected filter.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = filtered.map(log => `
+                <div class="glass-panel p-4 rounded-xl space-y-2 border-l-4 ${log.category === 'Practicing' ? 'border-l-indigo-500' : log.category === 'Building' ? 'border-l-brand-500' : 'border-l-emerald-500'}">
+                    <div class="flex justify-between items-center text-xs font-mono">
+                        <span class="text-slate-400 flex items-center gap-1.5"><i class="fa-regular fa-calendar text-[10px]"></i>${log.date}</span>
+                        <span class="px-2.5 py-0.5 rounded-full bg-brand-500/10 text-brand-500 font-bold font-mono">${log.hours} hrs</span>
+                    </div>
+                    <h4 class="font-bold text-xs text-slate-900 dark:text-white">${log.topic}</h4>
+                    <p class="text-[11px] text-slate-600 dark:text-slate-400 leading-relaxed">${log.note}</p>
+                    <div class="flex items-center justify-between text-[10px] font-mono text-slate-400 pt-2 border-t border-slate-100 dark:border-slate-800/80">
+                        <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-900 text-slate-700 dark:text-slate-300 font-bold">${log.category}</span>
+                        <span>Difficulty: <strong class="${log.difficulty === 'Challenging' ? 'text-amber-500' : 'text-slate-500'}">${log.difficulty}</strong></span>
+                    </div>
+                </div>
+            `).join('');
+
+            renderChart();
+        }
+
+        function renderChart() {
+            const canvas = document.getElementById('learning-chart');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            
+            const dpr = window.devicePixelRatio || 1;
+            canvas.width = canvas.offsetWidth * dpr;
+            canvas.height = canvas.offsetHeight * dpr;
+            ctx.scale(dpr, dpr);
+
+            const width = canvas.offsetWidth;
+            const height = canvas.offsetHeight;
+
+            ctx.clearRect(0, 0, width, height);
+
+            const isDark = document.documentElement.classList.contains('dark');
+            const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+            const hoursData = [2.5, 3.0, 0, 2.5, 4.0, 3.5, 0];
+            
+            if (APP_STATE.dailyLogs.length > 0) {
+                hoursData[1] = parseFloat(APP_STATE.dailyLogs[0]?.hours || 3.5);
+            }
+
+            const maxData = 5.0;
+            const padding = 28;
+            const chartWidth = width - padding * 2;
+            const chartHeight = height - padding * 2;
+            const barWidth = Math.max(12, (chartWidth / days.length) - 10);
+
+            days.forEach((day, i) => {
+                const val = hoursData[i] || 0;
+                const x = padding + i * (barWidth + 10) + 4;
+                const barH = (val / maxData) * chartHeight;
+                const y = height - padding - barH;
+
+                const gradient = ctx.createLinearGradient(0, y, 0, height - padding);
+                gradient.addColorStop(0, '#0284c7');
+                gradient.addColorStop(1, '#0369a1');
+
+                ctx.fillStyle = val > 0 ? gradient : (isDark ? '#1e293b' : '#e2e8f0');
+                ctx.beginPath();
+                ctx.roundRect(x, val > 0 ? y : height - padding - 4, barWidth, val > 0 ? barH : 4, [4, 4, 0, 0]);
+                ctx.fill();
+
+                ctx.fillStyle = isDark ? '#94a3b8' : '#64748b';
+                ctx.font = '10px JetBrains Mono';
+                ctx.textAlign = 'center';
+                ctx.fillText(day, x + barWidth / 2, height - 8);
+            });
+        }
+
+        function renderRoadmap() {
+            const container = document.getElementById('roadmap-stages-container');
+            if (!container) return;
+            container.innerHTML = APP_STATE.roadmap.map(rm => `
+                <div class="glass-panel p-4 rounded-xl space-y-2 border-t-2 border-t-brand-500 hover:border-brand-500 transition-all">
+                    <span class="text-[10px] font-mono text-brand-500 font-bold block">${rm.stage}</span>
+                    <h4 class="font-bold text-xs text-slate-900 dark:text-white">${rm.title}</h4>
+                    <span class="inline-block text-[9px] font-mono px-2 py-0.5 rounded bg-brand-500/10 text-brand-500 font-bold">${rm.status}</span>
+                    <p class="text-[11px] text-slate-600 dark:text-slate-400 leading-relaxed">${rm.desc}</p>
+                </div>
+            `).join('');
+        }
+
+        function renderJournal(cat) {
+            const grid = document.getElementById('journal-entries-grid');
+            if (!grid) return;
+            const filtered = cat === 'all' 
+                ? APP_STATE.journalEntries 
+                : APP_STATE.journalEntries.filter(j => j.category === cat);
+
+            if (filtered.length === 0) {
+                grid.innerHTML = `<div class="col-span-full glass-panel p-6 rounded-2xl text-center text-xs text-slate-400">No journal notes found in this category.</div>`;
+                return;
+            }
+
+            grid.innerHTML = filtered.map(j => `
+                <div class="glass-panel p-5 rounded-2xl space-y-3 border-l-4 border-l-brand-500">
+                    <div class="flex justify-between items-center text-xs font-mono">
+                        <span class="px-2 py-0.5 rounded bg-brand-500/10 text-brand-500 font-bold">${j.category}</span>
+                        <span class="text-slate-400 text-[10px]">${j.date}</span>
+                    </div>
+                    <h3 class="font-bold text-sm text-slate-900 dark:text-white">${j.title}</h3>
+                    <div class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">${j.content}</div>
+                </div>
+            `).join('');
+        }
+
+        function renderGuestbook() {
+            const feed = document.getElementById('guestbook-feed');
+            if (!feed) return;
+            feed.innerHTML = APP_STATE.guestbook.map(gb => `
+                <div class="glass-panel p-4 rounded-xl space-y-2">
+                    <div class="flex justify-between items-center text-xs font-mono">
+                        <span class="font-bold text-slate-900 dark:text-white">${gb.name}</span>
+                        <span class="text-[10px] text-slate-400">${gb.date}</span>
+                    </div>
+                    <p class="text-xs text-slate-600 dark:text-slate-300">${gb.message}</p>
+                </div>
+            `).join('');
+        }
+
+        function setupEventListeners() {
+            document.getElementById('theme-toggle-btn')?.addEventListener('click', toggleTheme);
+
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileBtn?.addEventListener('click', () => mobileMenu?.classList.toggle('hidden'));
+
+            document.querySelectorAll('.mobile-nav-link').forEach(link => {
+                link.addEventListener('click', () => mobileMenu?.classList.add('hidden'));
+            });
+
+            document.getElementById('close-node-detail')?.addEventListener('click', () => {
+                document.getElementById('node-detail-card')?.classList.add('hidden');
+            });
+
+            document.querySelectorAll('.skill-cat-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    document.querySelectorAll('.skill-cat-btn').forEach(b => {
+                        b.classList.remove('bg-brand-600', 'text-white');
+                        b.classList.add('bg-slate-200', 'dark:bg-slate-800', 'text-slate-700', 'dark:text-slate-300');
+                    });
+                    const target = e.currentTarget;
+                    target.classList.remove('bg-slate-200', 'dark:bg-slate-800', 'text-slate-700', 'dark:text-slate-300');
+                    target.classList.add('bg-brand-600', 'text-white');
+                    renderSkills(target.dataset.cat);
+                });
+            });
+
+            document.querySelectorAll('.proj-tab-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    document.querySelectorAll('.proj-tab-btn').forEach(b => {
+                        b.classList.remove('bg-brand-600', 'text-white');
+                        b.classList.add('bg-slate-200', 'dark:bg-slate-800', 'text-slate-700', 'dark:text-slate-300');
+                    });
+                    const target = e.currentTarget;
+                    target.classList.remove('bg-slate-200', 'dark:bg-slate-800', 'text-slate-700', 'dark:text-slate-300');
+                    target.classList.add('bg-brand-600', 'text-white');
+                    renderProjects(target.dataset.projCat);
+                });
+            });
+
+            document.querySelectorAll('.log-filter-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    document.querySelectorAll('.log-filter-btn').forEach(b => {
+                        b.classList.remove('bg-brand-600', 'text-white');
+                        b.classList.add('text-slate-700', 'dark:text-slate-300');
+                    });
+                    const target = e.currentTarget;
+                    target.classList.remove('text-slate-700', 'dark:text-slate-300');
+                    target.classList.add('bg-brand-600', 'text-white');
+                    renderDailyLogs(target.dataset.period);
+                });
+            });
+
+            const addLogModal = document.getElementById('add-log-modal');
+            document.getElementById('add-log-btn')?.addEventListener('click', () => addLogModal?.classList.remove('hidden'));
+            document.getElementById('close-add-log-modal')?.addEventListener('click', () => addLogModal?.classList.add('hidden'));
+
+            document.getElementById('add-log-form')?.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const newLog = {
+                    date: document.getElementById('log-form-date').value,
+                    hours: parseFloat(document.getElementById('log-form-hours').value),
+                    topic: document.getElementById('log-form-topic').value,
+                    category: document.getElementById('log-form-category').value,
+                    difficulty: document.getElementById('log-form-difficulty').value,
+                    note: document.getElementById('log-form-note').value,
+                    isToday: true
+                };
+
+                APP_STATE.dailyLogs.unshift(newLog);
+                renderDailyLogs(activeLogFilter);
+                addLogModal?.classList.add('hidden');
+                e.target.reset();
+            });
+
+            document.querySelectorAll('.jcat-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    document.querySelectorAll('.jcat-btn').forEach(b => {
+                        b.classList.remove('bg-brand-600', 'text-white');
+                        b.classList.add('bg-slate-200', 'dark:bg-slate-800', 'text-slate-700', 'dark:text-slate-300');
+                    });
+                    const target = e.currentTarget;
+                    target.classList.remove('bg-slate-200', 'dark:bg-slate-800', 'text-slate-700', 'dark:text-slate-300');
+                    target.classList.add('bg-brand-600', 'text-white');
+                    renderJournal(target.dataset.jcat);
+                });
+            });
+
+            document.getElementById('guestbook-form')?.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const name = document.getElementById('gb-name').value;
+                const msg = document.getElementById('gb-msg').value;
+                const captcha = parseInt(document.getElementById('gb-captcha').value, 10);
+
+                if (captcha !== 7) {
+                    const statusBox = document.createElement('div');
+                    statusBox.className = "p-2 text-xs text-red-500 font-mono bg-red-500/10 rounded-lg mt-2";
+                    statusBox.innerText = "Anti-spam check failed. Answer 3 + 4 = 7.";
+                    e.target.appendChild(statusBox);
+                    setTimeout(() => statusBox.remove(), 3000);
+                    return;
+                }
+
+                APP_STATE.guestbook.unshift({
+                    name: name,
+                    message: msg,
+                    date: "Just now"
+                });
+
+                renderGuestbook();
+                e.target.reset();
+            });
+
+            const resumeModal = document.getElementById('resume-modal');
+            document.getElementById('download-resume-btn')?.addEventListener('click', () => resumeModal?.classList.remove('hidden'));
+            document.getElementById('close-resume-modal')?.addEventListener('click', () => resumeModal?.classList.add('hidden'));
+            document.getElementById('modal-resume-close-btn')?.addEventListener('click', () => resumeModal?.classList.add('hidden'));
+
+            document.getElementById('close-case-study')?.addEventListener('click', () => {
+                document.getElementById('case-study-modal')?.classList.add('hidden');
+            });
+
+            const searchModal = document.getElementById('search-modal');
+            const searchInput = document.getElementById('global-search-input');
+            const searchTrigger = document.getElementById('search-trigger-btn');
+            const closeSearch = document.getElementById('close-search-modal');
+
+            searchTrigger?.addEventListener('click', () => {
+                searchModal?.classList.remove('hidden');
+                searchInput?.focus();
+            });
+
+            closeSearch?.addEventListener('click', () => searchModal?.classList.add('hidden'));
+
+            document.addEventListener('keydown', (e) => {
+                if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+                    e.preventDefault();
+                    searchModal?.classList.remove('hidden');
+                    searchInput?.focus();
+                }
+                if (e.key === 'Escape') {
+                    searchModal?.classList.add('hidden');
+                    document.getElementById('case-study-modal')?.classList.add('hidden');
+                    resumeModal?.classList.add('hidden');
+                    document.getElementById('add-log-modal')?.classList.add('hidden');
+                }
+            });
+
+            searchInput?.addEventListener('input', (e) => {
+                const query = e.target.value.toLowerCase().trim();
+                const resultsContainer = document.getElementById('search-results-list');
+                if (!resultsContainer) return;
+
+                if (!query) {
+                    resultsContainer.innerHTML = `<p class="text-slate-400 text-center py-6">Type to search across the entire developer journey platform...</p>`;
+                    return;
+                }
+
+                const skillHits = APP_STATE.skills.filter(s => s.name.toLowerCase().includes(query) || s.desc.toLowerCase().includes(query));
+                const projHits = APP_STATE.projects.filter(p => p.title.toLowerCase().includes(query) || p.description.toLowerCase().includes(query));
+                const journalHits = APP_STATE.journalEntries.filter(j => j.title.toLowerCase().includes(query) || j.summary.toLowerCase().includes(query));
+
+                let html = '';
+
+                if (skillHits.length > 0) {
+                    html += `<div class="font-bold text-brand-500 pt-2">Skills (${skillHits.length})</div>`;
+                    html += skillHits.map(s => `<div class="p-2 rounded bg-slate-100 dark:bg-slate-900">${s.name} - ${s.state}</div>`).join('');
+                }
+
+                if (projHits.length > 0) {
+                    html += `<div class="font-bold text-brand-500 pt-2">Projects (${projHits.length})</div>`;
+                    html += projHits.map(p => `<div class="p-2 rounded bg-slate-100 dark:bg-slate-900">${p.title} (${p.status})</div>`).join('');
+                }
+
+                if (journalHits.length > 0) {
+                    html += `<div class="font-bold text-brand-500 pt-2">Journal (${journalHits.length})</div>`;
+                    html += journalHits.map(j => `<div class="p-2 rounded bg-slate-100 dark:bg-slate-900">${j.title}</div>`).join('');
+                }
+
+                if (!html) {
+                    html = `<p class="text-slate-400 text-center py-6">No matching journey records found for "${query}".</p>`;
+                }
+
+                resultsContainer.innerHTML = html;
+            });
+        }
+    </script>
+</body>
+</html>
